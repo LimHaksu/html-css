@@ -278,3 +278,47 @@ Css Sprites Generator [https://www.toptal.com/developers/css/sprite-generator/](
     text-overflow: ellipsis;  
 }
 ```
+
+### 9.1 변형 속성 기본
+변형속성은 다음 스타일 속성과 사용 가능
+* 위치 속성 : top, left, bottom, right
+* 크기 속성 : width, height
+* 박스 속성 : margin, padding
+* 테두리 속성 : border-width, border-radius, border-color
+* 색상 속성 : color, background-color
+* 투명도 속성 : opacity
+* 변환 속성 : transform
+
+### 9.2 변형 속성
+```css
+/* property , duration , timing, funtion delay 순서 */
+transition: background-color 1s ease, width 5s linear 1s;
+```
+transition : 모든 속성을 한번에 사용  
+transition-delay : 이벤트 발생 후 몇 초 후 재생할지 지정  
+transition-duration : 몇 초 동안 재생할지 지정  
+transition-property : 어떤 속성을 변형할지 지정  
+transition-timing-function : 수치 변형 함수를 지정  
+  
+#### transition-timing-function
+linear; ease; ease-in; ease-out; ease-in-out;  
+cubic-bezier() 함수로 커스텀 가능  
+http://cubic-bezier.com
+
+### 9.3 키 프레임과 애니메이션 속성
+```css
+/* name, duration, function delay count direct 순서*/
+animation: rint 2s linear none infinite alternate;
+```
+animation : 모든 animation 속성을 한번에 적용  
+animation-delay : 이벤트 발생 후 몇 초 후에 재생할지 지정
+animation-direction : 애니메이션 진행 방향을 설정  
+animation-duration : 애니메이션을 몇 초 동안 재생할지 지정  
+animation-iteration-count : 애니메이션 반복 횟수를 지정  
+animatin-name : 애니메이션 이름을 지정  
+animation-play-state : 애니메이션 재생 상태를 지정  
+animation-timing-function : 수치 변형 함수를 지정  
+  
+animation-direction  
+alternate : from -> to -> from -> to 반복  
+normal : from -> to, from -> to 반복
