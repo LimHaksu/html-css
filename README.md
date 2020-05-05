@@ -291,7 +291,7 @@ Css Sprites Generator [https://www.toptal.com/developers/css/sprite-generator/](
 
 ### 9.2 변형 속성
 ```css
-/* property , duration , timing, funtion delay 순서 */
+/* property , duration , timing funtion, delay 순서 */
 transition: background-color 1s ease, width 5s linear 1s;
 ```
 transition : 모든 속성을 한번에 사용  
@@ -307,7 +307,7 @@ http://cubic-bezier.com
 
 ### 9.3 키 프레임과 애니메이션 속성
 ```css
-/* name, duration, function delay count direct 순서*/
+/* name, duration, function, delay, count, direct 순서*/
 animation: rint 2s linear none infinite alternate;
 ```
 animation : 모든 animation 속성을 한번에 적용  
