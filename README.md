@@ -23,7 +23,7 @@ h1 { color : red; }
 `#아이디` : id="아이디" 인 태그 선택
 
 ```css
-#header { color : red; } /* id="header" 인 태그 */
+#header { color : red; } /* id="header" 인 태그 */ 
 ```
 
 `.클래스` : class="클래스" 인 태그 선택
