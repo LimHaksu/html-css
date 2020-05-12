@@ -322,3 +322,13 @@ animation-timing-function : 수치 변형 함수를 지정
 animation-direction  
 alternate : from -> to -> from -> to 반복  
 normal : from -> to, from -> to 반복
+
+### 10.1 변환
+* 자바스크립트를 사용한 WebGL
+* CSS3를 사용한 3차원 변환
+impress.js
+
+### 10.3 3차원 변환
+transform-style  
+flat : 후손의 3차원 속성 무시
+preserve-3d : 후손의 3차원 속성 유지
