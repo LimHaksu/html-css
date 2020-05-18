@@ -365,3 +365,9 @@ css 파일에서 다른 css 파일을 추가하는 방법.
  ```
  * @import 규칙에 장치 종류 입력  
  `@import url(...css) screen`
+
+ ### 11.5 반응형 웹
+ ```html
+<!-- 반응형 웹페이지를 만들 땐 meta 태그 꼭 달기 : width 정보를 알아야함 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ ```
