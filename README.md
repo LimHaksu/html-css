@@ -332,3 +332,36 @@ impress.js
 transform-style  
 flat : 후손의 3차원 속성 무시
 preserve-3d : 후손의 3차원 속성 유지
+
+### 11.1 규칙(@-rule)
+@가 붙은 단어  
+예  
+```css 
+@font-face{
+    font-family : 'ChunkFiveRegular';
+    font-weight : normal;
+}
+```
+### 11.2 @import 규칙
+css 파일에서 다른 css 파일을 추가하는 방법.  
+
+### 11.3 @font-face 규칙
+ * font-family : 폰트 이름 지정.
+ * src : 폰트 파일 지정, local() , src(),
+ * font-weight : 폰트 두깨 지정,
+ * font-style : 폰트 스타일 지정.
+
+### 11.4 @media 규칙
+다양한 장치에서 HTML 문서가 적절한 형태를 갖추게 만들어주는 규칙
+ * link 태그에 media 속성에 장치 종류 입력.  
+ `<link rel="stylesheet" href="...css" media="screen">`
+ * @media 규칙에 장치 종류 입력
+ ```css
+    @media screen{
+        body{
+            color : black;
+        }
+    }
+ ```
+ * @import 규칙에 장치 종류 입력  
+ `@import url(...css) screen`
