@@ -371,3 +371,12 @@ css 파일에서 다른 css 파일을 추가하는 방법.
 <!-- 반응형 웹페이지를 만들 땐 meta 태그 꼭 달기 : width 정보를 알아야함 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ```
+
+ ### Apendix A.6 그리드 시스템
+ 부트스트랩의 그리드 시스템은 한 줄을 12개의 열로 나누어서 표기한다. 
+ Extra Small : .col-   576픽셀 이하  
+ Small : .col-sm-     576픽셀 이상  
+ Medium : .col-md-    768픽셀 이상  
+ Large : .col-lg-    992픽셀 이상  
+ Extra Large : .col-xl-    1200픽셀 이상  
+ 
