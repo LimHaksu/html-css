@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Media Query Basic</title>
+    <!-- 반응형 웹페이지를 만들 땐 meta 태그 꼭 달기 : width 정보를 알아야함 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 화면 너비 0픽셀 ~ 767픽셀 */
+        @media screen and (max-width: 767px) {
+            html {
+                background: red;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        /* 화면 너비 768픽셀~959픽셀 */
+        @media screen and (min-width: 768px) and (max-width: 959px) {
+            html {
+                background: green;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        /* 화면 너비 960픽셀 ~ 무한 픽셀 */
+        @media screen and (min-width: 960px) {
+            html {
+                background: blue;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        /* 디바이스 세로 */
+        /* @media screen and (orientation: portrait) {
+            html {
+                background: yellow;
+                color: white;
+                font-weight: bold;
+            }
+        } */
+
+        /* 디바이스 가로 */
+        /* @media screen and (orientation: landscape) {
+            html {
+                background: orange;
+                color: white;
+                font-weight: bold;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aenean luctus congue scelerisque. Maecenas aliquet ante.</p>
+</body>
+
+</html>
