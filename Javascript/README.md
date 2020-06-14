@@ -1163,3 +1163,20 @@ window.onload = function(){
 };
 ```
 
+
+
+#### XMLHttpRequest
+
+```javascript
+// XMLHttpRequest 객체는 빈 편지지와 같음. 수취인 배송방식, 내용물을 넣을 수 있다.
+request.open(전송방식, 경로, 비동기 사용 여부)
+request.onreadystatechange = function(event){
+    alert(request.readyState);
+    // 0 : request 객체를 만들었지만 open() 메서드로 초기화하지 않음
+    // 1 : 초기화했지만 send() 메서드 사용되지 않음
+    // 2 : send() 했지만 아직 데이터 못받음
+    // 3 : 데이터의 일부만 받음
+    // 4 : 모든 데이터 받음
+}
+```
+
