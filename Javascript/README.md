@@ -1178,5 +1178,232 @@ request.onreadystatechange = function(event){
     // 3 : 데이터의 일부만 받음
     // 4 : 모든 데이터 받음
 }
+
+evel('(' + request.responseText + ')'); // eval 함수를 이용하여 JSON TEXT를 JSON 객체로 변환 괄호로 감싸주는 건 에러를 방지하기 위하여
+```
+
+
+
+#### GET cahing
+
+```javascript
+// 구버전 브라우저는 GET 요청시 캐싱을 함
+// GET POST GET 과 같은 순서로 요청할 시 캐싱 데이터가 반환될 가능성이 있어서 GET 요청 주소에 더미 파라미터를 추가
+var request = new XMLHttpRequest();
+request.open('GET', '/products?dummy=' + new Date().getTime(), true);
+request.send();
+```
+
+
+
+#### CORS ( Cross-Origin Resource Sharing)
+
+```javascript
+// 서로 다른 도메인끼리 통신하는 것. 웹 브라우저는 보안상의 위협으로부터 사용자를 보호하기 위해 이러한 통신을 막음.
+```
+
+#### JSONP (JSON with Padding)
+
+```javascript
+// 서로 다른 도메인끼리 통신을 하기 위해 만들어진 방법
+```
+
+
+
+## 정규표현식
+
+#### 정규표현식 객체
+
+```javascript
+var regExp1 = new RegExp('text');
+var regExp2 = /text/;
+
+// RegExp 메서드
+// test(string) : 정규표현식과 일치하는 문자열이 있으면 true, 아니면 false
+// exec(string) : 정규 표현식과 일치하는 문자열을 리턴
+var regExp = /script/;
+var string = 'Javascript jQuery Ajax';
+var output = regExp.test(string);
+alert(output); // true
+
+// string 메서드
+// match(regExp) : 정규 표현식과 일치하는 부분 리턴
+// replace(regExp, replacement) : 정규 표현식과 일치하는 부분을 새로운 문자열로 바꿈
+// search(regExp) : 정규 표현식과 일치하는 부분의 위치 리턴
+// split(regExp) : 정규 표현식을 기준으로 문자열을 잘라 배열 리턴
+var regExp = /script/;
+var string = 'Javascript jQuery Ajax';
+var output = string.split(regExp);
+alert(output); // ["Java", " jQuery Ajax"];
+
+// 대체문자 (일치하는 문자중 가장 앞 문자만 대체됨)
+// $& : 일치하는 문자열
+// $` : 일치하는 부분의 앞부분 문자열
+// $' : 일치하는 부분의 뒷부분 문자열
+// $1, $2, $3 : 그룹
+var regExp = /a/;
+var string = 'Javascript jQuery Ajax';
+var output = string.replace(regExp, '+$&+');
+alert(output); // J+a+vascript jQuery Ajax';
+
+var regExp = /(a)(v)(a)/;
+var string = 'Javascript jQuery Ajax';
+var output = string.replace(regExp, '+$1=$2=$3+');
+alert(output) // j+a=v=a+script jQuery Ajax
+```
+
+
+
+#### 플래그 문자
+
+```javascript
+// g : 전역비교 수행
+// i : 대소문자를 가리지 않고 비교
+// m : 여러 줄의 검사를 수행
+
+var regExp = /a/ig;
+var string = 'Javascript jQuery Ajax';
+var output = string.replace(regExp, '+$&+');
+alert(output); // j+a+v+a+script jQuery +a+j+a+x;
+```
+
+
+
+#### 앵커문자
+
+```javascript
+// 문자열의 앞과 뒤를 구분해주는 정규 표현식
+// ^ABC 맨 앞 문자가 ABC
+// ABC$ 맨 뒤 문자가 ABC
+var regExp = /^j/ig;
+var string = 'Javascript\njQuery\nAjax';
+var output = string.replace(regExp, '+$&+');
+alert(output); // +J+avascript
+			   // jQuery
+			   // Ajax
+
+var regExp = /^j/igm;
+var string = 'Javascript\njQuery\nAjax';
+var output = string.replace(regExp, '+$&+');
+alert(output); // +J+avascript
+			   // +j+Query
+			   // Ajax
+```
+
+
+
+#### 메타 문자
+
+```javascript
+// . 아무 글자
+// [abc] 괄호 안의 글자
+// [^abc] 괄호 안의 글자 제외
+// [a-z] 알파벳 a부터 z까지
+// [A-Z] 알파벳 A부터 Z까지
+// [0-9] 숫자 0부터 9까지
+
+var regExp = /[aj]/ig;
+var string = 'Javascript jQuery Ajax';
+var output = string.replace(regExp, '+$&+');
+alert(output); // +J++a+v+a+script +j+Query +a++j++a+x
+
+var regExp = /......-......./;
+var string = '910209-2001211';
+var output = string.replace(regExp, '+$&+');
+alert(output); // +910209-2001211+
+
+/*
+\d 숫자
+\w 아무 단어(숫자 포함)
+\s 공백 문자(탭, 띄어쓰기, 개행)
+\D 숫자 아님
+\W 아무 단어 아님
+\S 공백 문자 아님
+*/ 
+
+var regExp = /\d\d\d\d\d\d-[1234]\d\d\d\d\d\d/;
+var string = '910209-2001211';
+var output string.replace(regExp, '+$&+');
+alert(output); // +910209-2001211+
+```
+
+
+
+#### 수량 문자
+
+```javascript
+/*
+a+    a가 적어도 1개 이상
+a*    a가 0개 또는 여러 개
+a?    a가 0개 또는 1개
+a{5}    a가 5개
+a{2,5}   a가 2개~5개
+a{2,}    a가 2개 이상
+a{,2}    a가 2개 이하
+*/
+
+var regExp = /\d{6}-[1234]\d{6}/;
+var string = '910209-2001211';
+var output = string.replace(regExp, '+$&+');
+alert(output); // +910209-2001211+
+
+var regExp = /(na)+/;
+var string = 'banana';
+var output = string.replace(regExp, '+$&+');
+alert(output); // ba+nana+
+```
+
+
+
+
+
+#### 선택 문자
+
+```javascript
+// (abc|def)   abc 또는 def
+
+var string = prompt('소문자 또는 숫자로만 구성된 단어를 입력하세요.', '단어');
+var regExp = /([0-9]|[a-z])/g;
+if(string.replace(regExp,'').length == 0){
+    alert('감사합니다.');
+}else{
+    alert('ㅇㅁㅇ');
+}
+// 소문자, 숫자를 전부 빈 스트링으로 바꿈
+```
+
+
+
+#### 정규표현식 예제
+
+```javascript
+function isKoreanName(string){
+    var regExp = /([가-힣])/g;
+    var replaceString = string.replace(regExp, '');
+    if(replacedString.length == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+alert(isKoreanName('윤인성'));
+
+function isEmail(string){
+    var regExp = /\w+@\W+.\w+/;
+    return regExp.tset(string);
+}
+alert(isEmail('rintiantta@naver.com'));
+
+// 천단위 점찍기
+function addComma(number){
+    var regExp = /(^[+-]?\d+)(\d{3})/;
+    var string = String(number);
+    while(regExp.test(string)){
+        string = string.replace(regExp, '$1,$2'));
+    }
+    return string;
+}
+
+alert(addComma('1000000000'));
 ```
 
