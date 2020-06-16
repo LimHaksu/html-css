@@ -1206,6 +1206,31 @@ request.send();
 
 ```javascript
 // 서로 다른 도메인끼리 통신을 하기 위해 만들어진 방법
+
+window.test = function (input){
+    alert(input.data);
+};
+// JSONP 요청 수행
+var script = document.createElement('script');
+script.src = 'https://api.github.com/users/jquery/repos?callback=test'; // 결과 JSON이 test()함수 안에 담겨서 온다.
+document.head.appendChild(script);
+
+// server side
+var express = require('express');
+var app = express();
+app.use(express.static('public'));
+app.get('/data.jsonp', function (request, response){
+    var callback = request.query.callback;
+    response.send(callback + '(' + JSON.stringify({
+        제품명 : '7d 건조 망고',
+        유형: '당절임',
+        성분: '망고, 설탕, 메타중아황산나트륨, 치자황색소',
+        원산지: '필리핀'
+    }) + ')');
+});
+app.listen(52273, function(){
+    console.log('Server Running at http://127.0.0.1:52273');
+});
 ```
 
 
